@@ -1,7 +1,7 @@
 Picks::Application.routes.draw do
 
-  scope module: "api" do
-    scope module: "v1" do
+  scope path: "api" do
+    scope path: "v1" do
       resource :user
     end
   end
