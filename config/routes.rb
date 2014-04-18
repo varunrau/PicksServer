@@ -1,8 +1,8 @@
 Picks::Application.routes.draw do
 
-  namespace :api do
-    namespace :v1 do
-      resources :user
+  scope module: "api" do
+    scope module: "v1" do
+      resource :user
     end
   end
 end
