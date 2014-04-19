@@ -8,10 +8,14 @@ class Api::V1::UserController < ApplicationController
   end
 
   def show
-    @user = User.find params[:facebok_id]
+    @user = User.find params[:facebook_id]
   end
 
   def pictures
+    user = User.find params[:facebook_id]
+  end
+
+  def upload
     user = User.find params[:facebook_id]
   end
 end
