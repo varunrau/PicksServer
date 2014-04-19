@@ -9,7 +9,6 @@ group :development do
 end
 
 gem 'carrierwave'
-gem 'rmagick'
 
 group :production do
   gem 'pg'
