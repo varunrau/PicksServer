@@ -14,7 +14,8 @@ skip_before_filter :verify_authenticity_token
   end
 
   def show
-    @user = User.find params[:facebook_id]
+    user = User.find params[:facebook_id]
+    render json: { user: user.to_json }
   end
 
   def pictures
