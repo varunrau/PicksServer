@@ -5,5 +5,8 @@ class Api::V1::PictureController < ApplicationController
   end
 
   def rate
+    user = User.find params[:facebook_id]
+    picture = Picture.find image: params[:uuid]
+    Views.create facebook_id: user.facebook_id, picture_id: picture.image
   end
 end

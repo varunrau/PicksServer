@@ -19,11 +19,12 @@ skip_before_filter :verify_authenticity_token
 
   def pictures
     user = User.find params[:facebook_id]
+    render json: { pictures: Picture.collection_to_json(user.recommended_pictures) }
   end
 
   def upload
     user = User.find params[:facebook_id]
     Picture.create image: params[:uuid], facebook_id: user.facebook_id
-    render json: { message: "Success!" }
+    render json: { message: "Image Uploaded!" }
   end
 end
