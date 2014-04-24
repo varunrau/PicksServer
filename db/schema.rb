@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424101605) do
+ActiveRecord::Schema.define(version: 20140424201420) do
 
   create_table "pictures", force: true do |t|
     t.integer  "num_liked"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140424101605) do
     t.string   "image"
     t.float    "beauty_score"
     t.integer  "view_id"
+    t.integer  "num_ratings"
   end
 
   create_table "users", force: true do |t|
