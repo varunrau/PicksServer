@@ -1,10 +1,16 @@
 class Api::V1::UserController < ApplicationController
+skip_before_filter :verify_authenticity_token
 
   def index
     @users = User.all
     respond_to do |format|
       format.json { render json: @users }
     end
+  end
+
+  def new
+    user = User.create facebook_id: params[:facebook_id], name: params[:name]
+    render json: { message: "User created", user: user.to_json }
   end
 
   def show
@@ -17,5 +23,7 @@ class Api::V1::UserController < ApplicationController
 
   def upload
     user = User.find params[:facebook_id]
+    Picture.create image: params[:uuid], facebook_id: user.facebook_id
+    render json: { message: "Success!" }
   end
 end
