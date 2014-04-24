@@ -1,7 +1,16 @@
 class Picture < ActiveRecord::Base
-  belongs_to :user
+  has_many :users, through: :views
 
-  def get_pictures
-    Picture.where
+  def collection_to_json(pictures)
+    pictures.collect do |pic|
+      pic.to_json
+    end
+  end
+
+  def to_json
+    {
+      image: image,
+      facebook_id: facebook_id
+    }
   end
 end
