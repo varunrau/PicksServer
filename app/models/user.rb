@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   def recommended_pictures
     target = self.pictures
-    Picture.order(beauty_score: :desc).where('id != ?', target).limit(10)
+    Picture.order(beauty_score: :desc).where('id != ?', target).limit(20).sample(10)
   end
 
   def to_json
