@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424062414) do
+ActiveRecord::Schema.define(version: 20140424101605) do
 
   create_table "pictures", force: true do |t|
     t.integer  "num_liked"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140424062414) do
     t.datetime "updated_at"
     t.string   "image"
     t.float    "beauty_score"
+    t.integer  "view_id"
   end
 
   create_table "users", force: true do |t|
@@ -27,10 +28,11 @@ ActiveRecord::Schema.define(version: 20140424062414) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "facebook_id"
+    t.integer  "view_id"
   end
 
   create_table "views", force: true do |t|
-    t.string   "facebook_id"
+    t.integer  "user_id"
     t.integer  "picture_id"
     t.datetime "created_at"
     t.datetime "updated_at"
